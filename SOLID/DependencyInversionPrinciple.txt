@@ -1,0 +1,33 @@
+Dependency Inversion Principle:
+
+This priciple states that "class should be depend on interfaces rather than concrete classes"
+
+Problem:
+
+The problem here is wiredKeyboard and wiredMouse are two concrete classes and we are using objects of those classes in MacBook classes. But in future if we want to use both bluetooth mouse/keyboard and wired also then this violates the dependency inversion priciple.
+
+Class MacBook{
+	private final wiredKeyboard keyboard;
+	private final wiredMouse mouse;
+	
+	public MacBook()
+	{
+		keyboard=new wiredKeyboard();
+		mouse=new wiredMouse();
+	}
+}
+
+Solution:
+
+Class MacBook{
+	private final Keyboard keyboard;
+	private final Mouse mouse;
+	
+	public MacBook(Keyboard keyboard, Mouse mouse) //This is constructor injection
+	{
+		this.keyboard=keyboard;
+		this.mouse=mouse;
+	}
+}
+
+Now the client will decide based on requirement which type of keyboard and mose needed to be used and will class the MacBook constructor.

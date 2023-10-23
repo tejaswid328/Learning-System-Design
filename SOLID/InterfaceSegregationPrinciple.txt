@@ -1,0 +1,41 @@
+Interface Segregation Principle
+
+This principle states that “do not force any client to implement an interface which is irrelevant to them“.
+
+Problem:
+Here the problem is we are unnecessarily forcing the waiterclass to implement the 2 irrelevant functions.
+
+interface RestaurantEmployee{
+	void washDishes();
+	void serveCustomers();
+	void cookFood();
+}
+
+class waiter implements RestaurantEmployee{
+	public void washDishes(){
+	//not my job
+	}
+	public void serveCustomers(){
+		//serving customers
+	}
+	public void cookFood(){
+	//not my job
+	}
+}
+
+Solution:
+Divide the interfaces such that classes should not unnecessarilyimplement them.
+
+interface waiterInterface{									interface chefInterface{
+	void serveCustomers();										void cookFood();
+	void takeOrder();											void decideMenu();
+}															}
+
+class waiter implements waiterInterface{
+	public void serveCustomers(){
+		//serving customers
+	}
+	public void takeOrder(){
+		//Taking Orders
+	}
+}

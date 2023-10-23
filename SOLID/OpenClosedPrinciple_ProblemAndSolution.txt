@@ -1,0 +1,40 @@
+Open/Closed Principle
+
+This principle states that “software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification” which means you should be able to extend a class behavior, without modifying it.
+
+Problem:
+
+The problem is the below code is already tested and is live so we should not modify it if we want to save the data to file instead we should extend the class. Create a interface.
+
+Class InvoiceDao{
+	Invoice invoice;
+	public InvoiceDao(Invoice invoice)
+	{
+		this.invoice=invoice;
+	}
+	public void saveToDB()
+	{
+		//Save to DB
+	} 
+}
+
+Solution:
+Create an interface so that in future need not to modify class but extension can be done.
+
+interface InvoiceDao{
+	public void save(Invoice invoice);
+}
+
+Class DatabaseInvoiceDao implements InvoiceDao{
+	@override
+	public void save(Invoice invoice){
+		//save to db
+	}
+}
+
+Class FileInvoiceDao implements InvoiceDao{
+	@override
+	public void save(Invoice invoice){
+		//save to file
+	}
+}

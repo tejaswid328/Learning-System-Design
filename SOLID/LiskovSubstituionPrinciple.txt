@@ -1,0 +1,36 @@
+Liskov’s Substitution Principle
+
+This principle states that “Derived or child classes must be substitutable for their base or parent classes“. This principle ensures that any class that is the child of a parent class should be usable in place of its parent without any unexpected behavior.Subclass should extend the capabilty but not narrow ot down.
+
+Problem:
+
+The problem is the bicycle class is narrow dowwn the engine feature which violates the Liskov’s principle.
+
+interface Bike{
+	void turnOnEngine();
+	void accelerate();
+}
+
+class MotorCycle implements Bike{
+	Boolean isEngineOn;
+	int speed;
+	
+	public void turnOnEngine(){
+			isEngineOn=true;
+	}
+	public void accelerate()
+	{
+		speed+=10;
+	}
+}
+
+class Bicycle implements Bike{
+	public void turnOnEngine(){
+			throw new AssertionError(detailMessage,"No Engine")
+	}
+	public void accelerate()
+	{
+		//doSomething
+	}
+}
+
