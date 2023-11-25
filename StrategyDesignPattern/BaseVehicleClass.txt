@@ -1,0 +1,18 @@
+package WithStrategyPatten;
+
+import WithStrategyPatten.Strategy.DriveStrategy;
+
+public class Vehicle{
+	DriveStrategy driveObject;
+
+	//This is known as constuctor injection
+	Vehicle(DriveStrategy driveObject)
+	{
+		this.driveObject=driveObject;
+	}
+
+	public void drive()
+	{
+		driveObject.drive();
+	}
+}

@@ -1,0 +1,15 @@
+Strategy Design Pattern:
+
+Strategy is a behavioral design pattern that lets you define a family of algorithms,
+put each of them into a separate class, and make their objects interchangeable.
+
+Problem:
+Let's say you have vehicle class which has a drive method. Now there are 3 child classes of vehicle class(C1,C2 and C3).Now C1 doesn't override the
+drive method from vehicle class but c2 and c3 does.But the problem here is there are 2 duplicate implementations of drive method in c2 and c3 classes.
+So there is no code reusability.
+
+Solution:
+The solution is strategy design pattern which allows us to create a separte interface for drive method and vehicle class will have Has-A-Relation.Here
+Constructor injection will be used which means the child class will call the construtor present in vehicle class and it is vehicle's class responsibilty
+to return the object based on the child class.
+
